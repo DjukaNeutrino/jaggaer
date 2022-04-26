@@ -15,10 +15,17 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
-            }
+            },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+            },
         ]
     },
-    resolve: { extensions: ["*", ".js", ".jsx"] },
+    resolve: { extensions: ["*", ".js", ".jsx"],
+                alias: {'react-dom': '@hot-loader/react-dom'}
+    },
     output: {
         path: path.resolve(__dirname, "dist/"),
         publicPath: "/dist/",
