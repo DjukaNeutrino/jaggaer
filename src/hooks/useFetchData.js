@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react';
 import axios from 'axios';
 
-const axiosFetchData = () => {
+const useFetchData = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -27,4 +27,4 @@ const axiosFetchData = () => {
     };
 };
 
-export default axiosFetchData;
+export default useFetchData;
