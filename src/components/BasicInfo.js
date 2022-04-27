@@ -30,7 +30,7 @@ const BasicInfo = ({data}) => {
                     type="number"
                     defaultValue={minimum_order_quantity}
                 />{unit}
-                <Button variant="outlined" startIcon={<Add/>}>
+                <Button variant="contained" color="error" sx={{borderRadius:'0'}} startIcon={<Add style={{fill:'white'}}/>}>
                     Add to cart
                 </Button>
             </div>

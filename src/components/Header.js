@@ -5,8 +5,17 @@ import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Favorite from '../icons/favorite.svg';
-import FactsSoft from '../icons/facts-soft.svg'
-import Cart from '../icons/cart.svg'
+import FactsSoft from '../icons/facts-soft.svg';
+import Cart from '../icons/cart.svg';
+import { styled } from '@mui/material/styles';
+
+const StyledBadge = styled(Badge)(() => ({
+    '& .MuiBadge-badge': {
+        right: -22,
+        top: -10,
+        border: '1px solid #fff',
+    }
+}));
 
 const Header = ({props, data}) => {
     const {article : {title}, cart:{items} } = data;
@@ -26,16 +35,21 @@ const Header = ({props, data}) => {
 
     return(
         <ElevationScroll {...props}>
-            <AppBar>
-                <Toolbar>
-                    <Typography variant="h6" component="div">
+            <AppBar sx={{borderBottom:'1px solid #E8E8E8', backgroundColor:'#ffffff'}}>
+                <Toolbar sx={{ width: '100%', display:'block'}}>
+                    <Typography color="error" variant="h6" style={{display:'inline-block', marginTop:'24px'}}>
                         {title}
                     </Typography>
-                    <FactsSoft style={{fill: "white"}}/>
-                    <Favorite style={{fill: "white"}}/>
-                    <Badge badgeContent={items} color="primary">
-                        <Cart style={{fill: "white"}}/>
-                    </Badge>
+                    <div style={{float:'right', padding:'24px 12px', borderLeft:'1px solid #E8E8E8' }}>
+                        <StyledBadge badgeContent={items} color="error"/>
+                        <Cart style={{fill:'#A7A7A7'}}/>
+                    </div>
+                    <div style={{float:'right', padding:'24px 12px'}}>
+                        <FactsSoft style={{fill:'#A7A7A7'}}/>
+                    </div>
+                    <div style={{float:'right', padding:'24px 12px'}}>
+                        <Favorite style={{fill:'#A7A7A7'}}/>
+                    </div>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>

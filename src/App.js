@@ -12,7 +12,6 @@ import PricingAndShipping from './components/PricingAndShipping';
 import Container from '@mui/material/Container';
 
 const App = ({props}) => {
-    console.log(data);
     return <>
             <CssBaseline />
             <Header props={props} data={data}/>
