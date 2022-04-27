@@ -1,58 +1,43 @@
 import React from "react";
 import {hot} from "react-hot-loader";
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import "./App.css";
 import data from '../resources/data.json';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
+import Header from './components/Header';
+import Grid from '@mui/material/Grid';
+import BasicInfo from './components/BasicInfo';
+import Description from './components/Description';
 import Container from '@mui/material/Container';
 
 const App = ({props}) => {
-
-    const ElevationScroll = (props) => {
-        const { children } = props;
-
-        const trigger = useScrollTrigger({
-            disableHysteresis: true,
-            threshold: 0,
-        });
-
-        return React.cloneElement(children, {
-            elevation: trigger ? 4 : 0,
-        });
-    };
-
     console.log(data);
-    return(
-        <>
+    return <>
             <CssBaseline />
-            <ElevationScroll {...props}>
-                <AppBar>
-                    <Toolbar>
-                        <Typography variant="h6" component="div">
-                            Cras mattis consectetur purus sit amet fermentum
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-            </ElevationScroll>
-            <Toolbar />
-            <Container>
-                <Box sx={{ my: 2 }}>
-                    {[...new Array(36)]
-                        .map(
-                            () => `Cras mattis consectetur purus sit amet fermentum.
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-                        )
-                        .join('\n')}
-                </Box>
+            <Header props={props} data={data}/>
+            <Container maxWidth={false}>
+                <Grid container spacing={2} style={{marginTop:'80px'}}>
+                    <Grid item lg={5} md={5} sm={12} xs={12}>
+                        5
+                    </Grid>
+                    <Grid item lg={7} md={7} sm={12} xs={12}>
+                        <BasicInfo data={data}/>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                    <Grid item lg={10} md={10} sm={12} xs={12}>
+                        <Description data={data}/>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                    <Grid item lg={5} md={5} sm={12} xs={12}>
+                        Details
+                    </Grid>
+                    <Grid item lg={5} md={5} sm={12} xs={12}>
+                        Pricing
+                    </Grid>
+                </Grid>
             </Container>
         </>
-    );
 };
 
 export default hot(module)(App);
