@@ -7,6 +7,8 @@ import Header from './components/Header';
 import Grid from '@mui/material/Grid';
 import BasicInfo from './components/BasicInfo';
 import Description from './components/Description';
+import Details from './components/Details';
+import PricingAndShipping from './components/PricingAndShipping';
 import Container from '@mui/material/Container';
 
 const App = ({props}) => {
@@ -29,11 +31,11 @@ const App = ({props}) => {
                     </Grid>
                 </Grid>
                 <Grid container spacing={2}>
-                    <Grid item lg={5} md={5} sm={12} xs={12}>
-                        Details
+                    <Grid item lg={5} md={5} sm={5} xs={12}>
+                        <Details data={data}/>
                     </Grid>
-                    <Grid item lg={5} md={5} sm={12} xs={12}>
-                        Pricing
+                    <Grid item lg={5} md={5} sm={5} xs={12}>
+                        <PricingAndShipping data={data}/>
                     </Grid>
                 </Grid>
             </Container>

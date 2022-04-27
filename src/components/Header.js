@@ -1,15 +1,15 @@
 import React from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Favorite from '../icons/favorite.svg';
 import FactsSoft from '../icons/facts-soft.svg'
 import Cart from '../icons/cart.svg'
 
-
 const Header = ({props, data}) => {
-    const {article : {title} } = data;
+    const {article : {title}, cart:{items} } = data;
 
     const ElevationScroll = (props) => {
         const { children } = props;
@@ -33,7 +33,9 @@ const Header = ({props, data}) => {
                     </Typography>
                     <FactsSoft style={{fill: "white"}}/>
                     <Favorite style={{fill: "white"}}/>
-                    <Cart style={{fill: "white"}}/>
+                    <Badge badgeContent={items} color="primary">
+                        <Cart style={{fill: "white"}}/>
+                    </Badge>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>

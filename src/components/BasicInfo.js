@@ -8,7 +8,7 @@ import Discount from '../icons/discount.svg'
 import Add from '../icons/add.svg'
 
 const BasicInfo = ({data}) => {
-    const {article : {title, supplier_link, supplier_name, stars, price, currency, transport_costs, vat_percent} } = data;
+    const {article : {title, supplier_link, supplier_name, stars, price, currency, transport_costs, vat_percent, minimum_order_quantity, unit} } = data;
 
     return <>
             <Typography>{title}</Typography>
@@ -28,8 +28,8 @@ const BasicInfo = ({data}) => {
                 <TextField
                     id="PCE"
                     type="number"
-                    value={1}
-                />PCE
+                    defaultValue={minimum_order_quantity}
+                />{unit}
                 <Button variant="outlined" startIcon={<Add/>}>
                     Add to cart
                 </Button>
