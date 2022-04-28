@@ -26,6 +26,7 @@ const AddToCartHolder = styled.div`
 const Section = styled.section`
     position:relative;
     height:100%;
+    min-height:240px;
 `;
 
 const BasicInfo = ({data}) => {
