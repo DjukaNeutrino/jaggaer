@@ -1,16 +1,23 @@
-import React from "react";
+import React from 'react';
 import Typography from '@mui/material/Typography';
+import styled from "styled-components";
+const StyledTypography = styled(Typography)`
+        text-transform: uppercase;
+    `;
 
-const Description = ({data}) => {
-    const {article : {description_long} } = data;
-    return <>
-        <Typography variant='h6'
-                    color="error"
-                    style={{textTransform:"uppercase"}}>
-            Description
-        </Typography>
-        <Typography>{description_long}</Typography>
+function Description({ data }) {
+  const { article: { description_long } } = data;
+  return (
+    <>
+      <StyledTypography
+        variant="h6"
+        color="error"
+      >
+        Description
+      </StyledTypography>
+      <Typography>{description_long}</Typography>
     </>
-};
+  );
+}
 
 export default Description;

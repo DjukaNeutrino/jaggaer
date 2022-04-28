@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Section = styled.section`
     background:#FFFFFF;
@@ -15,69 +14,87 @@ const Ul = styled.ul`
     margin-top:0
 `;
 
-const PricingAndShipping = ({data}) => {
-    const {article : {minimum_order_quantity, delivery_time, price_breaks, currency, unit, transport_costs} } = data;
-    return <Section>
-            <Typography variant='h6'
-                        color="error"
-                        style={{borderBottom:"1px solid #E8E8E8",
-                                marginBottom:'16px',
-                                textTransform:"uppercase",
-                                paddingBottom:"16px"}}>
-                Pricing and shipping
-            </Typography>
-            <Ul>
-                <li>
-                    <Typography variant='body2'
-                                component="span"
-                                style={{color:"#A7A7A7"}}>
-                        {`Minimum order: `}
-                    </Typography>
-                    <Typography variant='subtitle2'
-                                component="span">
-                        {minimum_order_quantity} {unit}
-                    </Typography>
-                </li>
-                <li>
-                    <Typography variant='body2'
-                                component="span"
-                                style={{color:"#A7A7A7"}}>
-                        {`Delivery: `}
-                    </Typography>
-                    <Typography variant='subtitle2'
-                                component="span">
-                       {transport_costs} {currency}
-                    </Typography>
-                </li>
-                <li>
-                    <Typography variant='body2'
-                                component="span"
-                                style={{color:"#A7A7A7"}}>
-                        {`Delivery: `}
-                    </Typography>
-                    <Typography variant='subtitle2'
-                                component="span">
-                        {`${delivery_time} days`}
-                    </Typography>
-                </li>
-            </Ul>
+const StyledTypography = styled(Typography)`
+        border-bottom:1px solid #E8E8E8;
+        margin-bottom:16px;
+        text-transform:uppercase;
+        padding-bottom:16px;
+    `;
 
-            <Typography variant='body2'
-                        style={{borderBottom:"1px solid #E8E8E8",
-                            color:"#A7A7A7",
-                            marginTop:"24px"}}>
-                Price breaks
+const StyledTypographyTwo = styled(Typography)`
+        color:#A7A7A7;
+    `;
+
+const StyledTypographyThree = styled(Typography)`
+        border-bottom:1px solid #E8E8E8;
+        color:#A7A7A7;
+        margin-top:24px;
+    `;
+
+const StyledListItem = styled(Typography)`
+        border-bottom:1px solid #E8E8E8;
+        padding:5px 10px;
+    `;
+
+function PricingAndShipping({ data }) {
+  const {
+    article: {
+      minimum_order_quantity, delivery_time, price_breaks, currency, unit, transport_costs,
+    },
+  } = data;
+  return (
+    <Section>
+      <StyledTypography variant="h6" color="error">
+        Pricing and shipping
+      </StyledTypography>
+      <Ul>
+        <li>
+          <StyledTypographyTwo variant="body2" component="span">
+            {'Minimum order:  '}
+          </StyledTypographyTwo>
+          <Typography variant="subtitle2" component="span">
+            {minimum_order_quantity}
+            {' '}
+            {unit}
+          </Typography>
+        </li>
+        <li>
+          <StyledTypographyTwo variant="body2" component="span">
+            {'Delivery:  '}
+          </StyledTypographyTwo>
+          <Typography variant="subtitle2" component="span">
+            {transport_costs}
+            {' '}
+            {currency}
+          </Typography>
+        </li>
+        <li>
+          <StyledTypographyTwo variant="body2" component="span">
+            {'Delivery:  '}
+          </StyledTypographyTwo>
+          <Typography variant="subtitle2" component="span">
+            {`${delivery_time} days`}
+          </Typography>
+        </li>
+      </Ul>
+
+      <StyledTypographyThree variant="body2">
+        Price breaks
+      </StyledTypographyThree>
+      <List>
+        {Object.entries(price_breaks).map(([key, value], index) => (
+          <StyledListItem key={`feature_${index}`}>
+            <Typography
+              variant="subtitle2"
+              component="span"
+            >
+              {`ex ${key}${unit}: ${value} ${currency}/${unit}`}
             </Typography>
-            <List>
-                {Object.entries(price_breaks).map(([key, value], index) =>
-                    <ListItem key={`feature_${index}`} style={{borderBottom:"1px solid #E8E8E8"}}>
-                        <Typography variant='subtitle2'
-                                    component="span">
-                            {`ex ${key}${unit}: ${value} ${currency}/${unit}`}
-                        </Typography>
-                    </ListItem>)}
-            </List>
-        </Section>
-};
+          </StyledListItem>
+        ))}
+      </List>
+    </Section>
+  );
+}
 
 export default PricingAndShipping;

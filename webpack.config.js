@@ -23,8 +23,9 @@ module.exports = {
             },
         ]
     },
-    resolve: { extensions: ["*", ".js", ".jsx"],
-                alias: {'react-dom': '@hot-loader/react-dom'}
+    resolve: {
+        extensions: ["*", ".js", ".jsx"],
+        alias: {'react-dom': '@hot-loader/react-dom'}
     },
     output: {
         path: path.resolve(__dirname, "dist/"),
@@ -32,16 +33,10 @@ module.exports = {
         filename: "bundle.js"
     },
     devServer: {
-        // contentBase
         static : {
             directory : path.join(__dirname, "public/")
         },
         port: 3000,
-        // publicPath
-        devMiddleware:{
-            publicPath: "https://localhost:3000/dist/",
-        },
-        // hotOnly
         hot: "only",
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
