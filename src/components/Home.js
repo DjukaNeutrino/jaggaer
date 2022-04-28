@@ -8,6 +8,7 @@ import BasicInfo from '../components/BasicInfo';
 import Description from '../components/Description';
 import Details from '../components/Details';
 import PricingAndShipping from '../components/PricingAndShipping';
+import ImagesHolder from '../components/ImagesHolder';
 import Container from '@mui/material/Container';
 
 const Home = ({props}) => {
@@ -26,7 +27,7 @@ const Home = ({props}) => {
             <Container maxWidth={false}>
                 <Grid container spacing={2} style={{marginTop: '80px'}}>
                     <Grid item lg={5} md={5} sm={12} xs={12}>
-                        5
+                       <ImagesHolder data={data}/>
                     </Grid>
                     <Grid item lg={7} md={7} sm={12} xs={12}>
                         <BasicInfo data={data}/>

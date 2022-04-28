@@ -7,15 +7,27 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Favorite from '../icons/favorite.svg';
 import FactsSoft from '../icons/facts-soft.svg';
 import Cart from '../icons/cart.svg';
-import { styled } from '@mui/material/styles';
+import  {styled as styledMaterial}  from '@mui/material/styles';
+import styled from 'styled-components';
 
-const StyledBadge = styled(Badge)(() => ({
+const StyledBadge = styledMaterial(Badge)(() => ({
     '& .MuiBadge-badge': {
         right: -22,
         top: -10,
         border: '1px solid #fff',
     }
 }));
+
+const FactsAndFavoritesHolder = styled.div`
+    float:right;
+    padding:24px 12px;
+`;
+
+const CartHolder = styled.div`
+    float:right;
+    padding:24px 12px;
+    border-left:1px solid #E8E8E8;
+`;
 
 const Header = ({props, data}) => {
     const {article : {title}, cart:{items} } = data;
@@ -40,21 +52,20 @@ const Header = ({props, data}) => {
                     <Typography color="error" variant="h6" style={{display:'inline-block', marginTop:'24px'}}>
                         {title}
                     </Typography>
-                    <div style={{float:'right', padding:'24px 12px', borderLeft:'1px solid #E8E8E8' }}>
+                    <CartHolder>
                         <StyledBadge badgeContent={items} color="error"/>
                         <Cart style={{fill:'#A7A7A7'}}/>
-                    </div>
-                    <div style={{float:'right', padding:'24px 12px'}}>
+                    </CartHolder>
+                    <FactsAndFavoritesHolder>
                         <FactsSoft style={{fill:'#A7A7A7'}}/>
-                    </div>
-                    <div style={{float:'right', padding:'24px 12px'}}>
+                    </FactsAndFavoritesHolder>
+                    <FactsAndFavoritesHolder>
                         <Favorite style={{fill:'#A7A7A7'}}/>
-                    </div>
+                    </FactsAndFavoritesHolder>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>
     )
-
 };
 
 export default Header;
