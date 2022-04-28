@@ -7,16 +7,13 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Favorite from '../icons/favorite.svg';
 import FactsSoft from '../icons/facts-soft.svg';
 import Cart from '../icons/cart.svg';
-import  {styled as styledMaterial}  from '@mui/material/styles';
 import styled from 'styled-components';
 
-const StyledBadge = styledMaterial(Badge)(() => ({
-    '& .MuiBadge-badge': {
-        right: -22,
-        top: -10,
-        border: '1px solid #fff',
-    }
-}));
+const StyledBadge = styled(Badge)`
+        right: -22px;
+        top: -10px;
+        border: 1px solid #fff; 
+    `;
 
 const FactsAndFavoritesHolder = styled.div`
     float:right;

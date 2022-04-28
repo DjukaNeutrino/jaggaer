@@ -6,16 +6,11 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Discount from '../icons/discount.svg';
 import Add from '../icons/add.svg';
-import  {styled as styledMaterial}  from '@mui/material/styles';
 import styled from 'styled-components';
 
-const StyledTextField = styledMaterial(TextField)(() => ({
-    width: '50px',
-    '& .MuiOutlinedInput-root': {
-        height:'35px',
-        borderRadius:0
-    }
-}));
+const StyledTextField = styled(TextField)`
+        width: 50px;
+    `;
 
 const AddToCartHolder = styled.div`
     position:absolute;
@@ -79,6 +74,7 @@ const BasicInfo = ({data}) => {
                         id="PCE"
                         type="number"
                         defaultValue={minimum_order_quantity}
+                        size="small"
                     /> {unit}
                     <Button variant="contained"
                             color="error"
