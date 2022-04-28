@@ -15,26 +15,26 @@ const Ul = styled.ul`
 `;
 
 const StyledTypography = styled(Typography)`
-        border-bottom:1px solid #E8E8E8;
-        margin-bottom:16px;
-        text-transform:uppercase;
-        padding-bottom:16px;
-    `;
+    border-bottom:1px solid #E8E8E8;
+    margin-bottom:16px;
+    text-transform:uppercase;
+    padding-bottom:16px;
+`;
 
 const StyledTypographyTwo = styled(Typography)`
-        color:#A7A7A7;
-    `;
+    color:#A7A7A7;
+`;
 
 const StyledTypographyThree = styled(Typography)`
-        border-bottom:1px solid #E8E8E8;
-        color:#A7A7A7;
-        margin-top:24px;
-    `;
+    border-bottom:1px solid #E8E8E8;
+    color:#A7A7A7;
+    margin-top:24px;
+`;
 
 const StyledListItem = styled(Typography)`
-        border-bottom:1px solid #E8E8E8;
-        padding:5px 10px;
-    `;
+    border-bottom:1px solid #E8E8E8;
+    padding:5px 10px;
+`;
 
 function PricingAndShipping({ data }) {
   const {

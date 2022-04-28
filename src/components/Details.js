@@ -18,36 +18,36 @@ const Ul = styled.ul`
 `;
 
 const StyledTypography = styled(Typography)`
-        border-bottom:1px solid #E8E8E8;
-        text-transform:uppercase;
-        padding-bottom:16px;
-    `;
+    border-bottom:1px solid #E8E8E8;
+    text-transform:uppercase;
+    padding-bottom:16px;
+`;
 
 const StyledTypographyTwo = styled(Typography)`
-        margin-top:16px;
-        color:#A7A7A7;
-    `;
+    margin-top:16px;
+    color:#A7A7A7;
+`;
 
 const StyledTypographyThree = styled(Typography)`
-        color:#A7A7A7;
-    `;
+    color:#A7A7A7;
+`;
 
 const StyledTypographyFour = styled(Typography)`
-        color:#A7A7A7;
-        marginTop:12px;
-    `;
+    color:#A7A7A7;
+    marginTop:12px;
+`;
 
 const StyledChip = styled(Chip)`
-        margin:5px 5px 0 0;
-    `;
+    margin:5px 5px 0 0;
+`;
 
 const StyledLink = styled(Link)`
-        color: #849FAE;
-    `;
+    color: #849FAE;
+`;
 
 const StyledListItem = styled(ListItem)`
-        padding: 0;
-    `;
+    padding: 0;
+`;
 
 function Details({ data }) {
   const { article: { features, attachments, keywords } } = data;

@@ -9,11 +9,11 @@ import Discount from '../icons/discount.svg';
 import Add from '../icons/add.svg';
 
 const StyledTextField = styled(TextField)`
-        width: 50px;
-        .MuiInputBase-root{
-            border-radius:0;
-        }
-    `;
+    width: 50px;
+    .MuiInputBase-root{
+        border-radius:0;
+    }
+`;
 
 const AddToCartHolder = styled.div`
     position:absolute;
@@ -25,6 +25,27 @@ const Section = styled.section`
     position:relative;
     height:100%;
     min-height:240px;
+`;
+
+const StyledLink = styled(Link)`
+    color:#849FAE;
+`;
+
+const StyledRating = styled(Rating)`
+    margin:12px 0px 24px 0px;
+`;
+
+const StyledTypography = styled(Typography)`
+    color:#A7A7A7;
+    margin-right:8px;
+`;
+
+const StyledTypographyTwo = styled(Typography)`
+    color:#A7A7A7;
+`;
+
+const StyledAdd = styled(Add)`
+    fill: white;
 `;
 
 function BasicInfo({ data }) {
@@ -45,41 +66,34 @@ function BasicInfo({ data }) {
 
   return (
     <Section>
-      <Typography style={{ fontWeight: 600 }}>{title}</Typography>
+      <Typography><b>{title}</b></Typography>
       <Typography variant="subtitle2">
         by
         {' '}
-        <Link
+        <StyledLink
           href={supplier_link}
           variant="inherit"
           underline="none"
-          style={{ color: '#849FAE' }}
         >
           {supplier_name}
-        </Link>
+        </StyledLink>
       </Typography>
-      <Rating
+      <StyledRating
         name="rating"
         defaultValue={stars}
         precision={0.5}
         readOnly
-        style={{ margin: '12px 0 24px 0' }}
       />
       <div>
         <Typography
           variant="body"
-          style={{ fontWeight: 600 }}
         >
-          {price}
+          <b>{price}</b>
           {' '}
           {currency}
         </Typography>
-        <Typography
+        <StyledTypography
           variant="caption"
-          style={{
-            color: '#A7A7A7',
-            marginRight: '8px',
-          }}
         >
           +
           {' '}
@@ -88,18 +102,17 @@ function BasicInfo({ data }) {
           {currency}
           {' '}
           shipping
-        </Typography>
+        </StyledTypography>
         <Discount />
       </div>
-      <Typography
+      <StyledTypographyTwo
         variant="caption"
-        style={{ color: '#A7A7A7' }}
       >
         all prices include
         {' '}
         {vat_percent}
         % taxes
-      </Typography>
+      </StyledTypographyTwo>
       <AddToCartHolder>
         <StyledTextField
           id="PCE"
@@ -117,7 +130,7 @@ function BasicInfo({ data }) {
             marginLeft: '30px',
             textTransform: 'uppercase',
           }}
-          startIcon={<Add style={{ fill: 'white' }} />}
+          startIcon={<StyledAdd />}
         >
           Add to cart
         </Button>

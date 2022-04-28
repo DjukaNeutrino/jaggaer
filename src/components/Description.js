@@ -1,9 +1,10 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import styled from "styled-components";
+
 const StyledTypography = styled(Typography)`
-        text-transform: uppercase;
-    `;
+    text-transform: uppercase;
+`;
 
 function Description({ data }) {
   const { article: { description_long } } = data;

@@ -10,10 +10,10 @@ import FactsSoft from '../icons/facts-soft.svg';
 import Cart from '../icons/cart.svg';
 
 const StyledBadge = styled(Badge)`
-        right: -22px;
-        top: -10px;
-        border: 1px solid #fff; 
-    `;
+    right: -22px;
+    top: -10px;
+    border: 1px solid #fff; 
+`;
 
 const FactsAndFavoritesHolder = styled.div`
     float:right;
@@ -27,9 +27,21 @@ const CartHolder = styled.div`
 `;
 
 const StyledTypography = styled(Typography)`
-        display: inline-block;
-        marginTop: 24px;
-    `;
+    display: inline-block;
+    margin-top: 24px;
+`;
+
+const StyledCart = styled(Cart)`
+    fill: #A7A7A7;
+`;
+
+const StyledFavorite = styled(Favorite)`
+    fill: #A7A7A7;
+`;
+
+const StyledFactsSoft = styled(FactsSoft)`
+    fill: #A7A7A7;
+`;
 
 function Header({ props, data }) {
   const { article: { title }, cart: { items } } = data;
@@ -70,13 +82,13 @@ function Header({ props, data }) {
               badgeContent={items}
               color="error"
             />
-            <Cart style={{ fill: '#A7A7A7' }} />
+            <StyledCart />
           </CartHolder>
           <FactsAndFavoritesHolder>
-            <FactsSoft style={{ fill: '#A7A7A7' }} />
+            <StyledFactsSoft />
           </FactsAndFavoritesHolder>
           <FactsAndFavoritesHolder>
-            <Favorite style={{ fill: '#A7A7A7' }} />
+            <StyledFavorite/>
           </FactsAndFavoritesHolder>
         </Toolbar>
       </AppBar>
