@@ -47,13 +47,21 @@ const Header = ({props, data}) => {
 
     return(
         <ElevationScroll {...props}>
-            <AppBar sx={{borderBottom:'1px solid #E8E8E8', backgroundColor:'#ffffff'}}>
-                <Toolbar sx={{ width: '100%', display:'block'}}>
-                    <Typography color="error" variant="h6" style={{display:'inline-block', marginTop:'24px'}}>
+            <AppBar sx={{borderBottom:'1px solid #E8E8E8',
+                        backgroundColor:'#ffffff'
+                        }}>
+                <Toolbar sx={{ width: '100%',
+                                display:'block'}}>
+                    <Typography color="error"
+                                variant="h6"
+                                style={{display:'inline-block',
+                                        marginTop:'24px'
+                                }}>
                         {title}
                     </Typography>
                     <CartHolder>
-                        <StyledBadge badgeContent={items} color="error"/>
+                        <StyledBadge badgeContent={items}
+                                     color="error"/>
                         <Cart style={{fill:'#A7A7A7'}}/>
                     </CartHolder>
                     <FactsAndFavoritesHolder>

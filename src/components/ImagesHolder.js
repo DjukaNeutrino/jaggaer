@@ -16,7 +16,8 @@ const ImagesHolder = () => {
     return <>
         <Grid container spacing={2}>
             <Grid item lg={2} md={2} sm={12} xs={12}>
-                <Card sx={{ width: "100%", marginBottom:'30px' }}>
+                <Card sx={{ width: "100%",
+                            marginBottom:'30px' }}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
@@ -32,20 +33,19 @@ const ImagesHolder = () => {
                             component="img"
                             height="auto"
                             image="buzz_.jpg"
-                            alt="buzz_"
-                        />
+                            alt="buzz_"/>
                     </CardActionArea>
                 </Card>
             </Grid>
             <Grid item lg={10} md={10} sm={12} xs={12}>
-                <Card sx={{ width: "100%", position:'relative' }}>
+                <Card sx={{ width: "100%",
+                            position:'relative'}}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
                             height="auto"
                             image="InnovaDiscGolfDiscs.jpg"
-                            alt="InnovaDiscGolfDiscs"
-                        />
+                            alt="InnovaDiscGolfDiscs"/>
                     </CardActionArea>
                     <ZoomInHolder>
                         <ZoomIn style={{fill:'#A7A7A7'}}/>

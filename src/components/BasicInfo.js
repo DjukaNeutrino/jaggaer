@@ -12,7 +12,7 @@ import styled from 'styled-components';
 const StyledTextField = styledMaterial(TextField)(() => ({
     width: '50px',
     '& .MuiOutlinedInput-root': {
-       height:'35px',
+        height:'35px',
         borderRadius:0
     }
 }));
@@ -30,29 +30,63 @@ const Section = styled.section`
 `;
 
 const BasicInfo = ({data}) => {
-    const {article : {title, supplier_link, supplier_name, stars, price, currency, transport_costs, vat_percent, minimum_order_quantity, unit} } = data;
+    const {article :
+            {title,
+            supplier_link,
+            supplier_name,
+            stars, price,
+            currency,
+            transport_costs,
+            vat_percent,
+            minimum_order_quantity,
+            unit}
+        } = data;
 
     return <Section>
-                <Typography style={{ fontWeight: 600 }}>{title}</Typography>
+                <Typography style={{fontWeight: 600}}>{title}</Typography>
                 <Typography variant='subtitle2'>
-                   by <Link href={supplier_link} variant="inherit" underline="none" style={{ color: "#849FAE" }} >
+                   by <Link href={supplier_link}
+                            variant="inherit"
+                            underline="none"
+                            style={{color: "#849FAE"}}>
                         {supplier_name}
                     </Link>
                 </Typography>
-                <Rating name="rating" defaultValue={stars} precision={0.5} readOnly style={{ margin: "12px 0 24px 0" }}/>
+                <Rating name="rating"
+                        defaultValue={stars}
+                        precision={0.5}
+                        readOnly
+                        style={{margin: "12px 0 24px 0"}}/>
                 <div>
-                    <Typography variant='body' style={{ fontWeight: 600 }}>{price} {currency} </Typography>
-                    <Typography variant='caption'> + {transport_costs} {currency} shipping</Typography>
+                    <Typography variant='body'
+                                style={{fontWeight: 600}}>
+                        {price} {currency}
+                    </Typography>
+                    <Typography variant='caption'
+                                style={{color:"#A7A7A7",
+                                        marginRight:"8px"
+                                }}>
+                        + {transport_costs} {currency} shipping
+                    </Typography>
                     <Discount/>
                 </div>
-                <Typography variant='caption'>all prices include {vat_percent}% taxes </Typography>
+                <Typography variant='caption'
+                            style={{color:"#A7A7A7"}}>
+                    all prices include {vat_percent}% taxes
+                </Typography>
                 <AddToCartHolder>
                     <StyledTextField
                         id="PCE"
                         type="number"
                         defaultValue={minimum_order_quantity}
                     /> {unit}
-                    <Button variant="contained" color="error" sx={{borderRadius:'0', marginLeft:'30px'}} startIcon={<Add style={{fill:'white'}}/>}>
+                    <Button variant="contained"
+                            color="error"
+                            sx={{borderRadius:'0',
+                                marginLeft:'30px',
+                                textTransform:"uppercase"
+                            }}
+                            startIcon={<Add style={{fill:'white'}}/>}>
                         Add to cart
                     </Button>
                 </AddToCartHolder>
