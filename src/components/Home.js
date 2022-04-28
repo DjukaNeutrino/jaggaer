@@ -10,6 +10,13 @@ import Details from '../components/Details';
 import PricingAndShipping from '../components/PricingAndShipping';
 import ImagesHolder from '../components/ImagesHolder';
 import Container from '@mui/material/Container';
+import styled from "styled-components";
+
+const Section = styled.section`
+    background:#EFEFEF;
+    margin-top:60px;
+    padding:40px;
+`;
 
 const Home = ({props}) => {
     const {
@@ -25,7 +32,7 @@ const Home = ({props}) => {
         <CssBaseline>
             <Header props={props} data={data}/>
             <Container maxWidth={false}>
-                <Grid container spacing={2} style={{marginTop: '80px'}}>
+                <Grid container spacing={2} style={{marginTop: '120px'}}>
                     <Grid item lg={5} md={5} sm={12} xs={12}>
                        <ImagesHolder data={data}/>
                     </Grid>
@@ -33,20 +40,24 @@ const Home = ({props}) => {
                         <BasicInfo data={data}/>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
-                    <Grid item lg={10} md={10} sm={12} xs={12}>
-                        <Description data={data}/>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2}>
-                    <Grid item lg={5} md={5} sm={5} xs={12}>
-                        <Details data={data}/>
-                    </Grid>
-                    <Grid item lg={5} md={5} sm={5} xs={12}>
-                        <PricingAndShipping data={data}/>
-                    </Grid>
-                </Grid>
             </Container>
+            <Section>
+                <Container maxWidth={false}>
+                    <Grid container spacing={2}>
+                        <Grid item lg={10} md={10} sm={12} xs={12}>
+                            <Description data={data}/>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={2}>
+                        <Grid item lg={5} md={5} sm={5} xs={12}>
+                            <Details data={data}/>
+                        </Grid>
+                        <Grid item lg={5} md={5} sm={5} xs={12}>
+                            <PricingAndShipping data={data}/>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Section>
         </CssBaseline>
         }
     </>
