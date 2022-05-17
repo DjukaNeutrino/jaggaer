@@ -22,7 +22,7 @@ const StyledGrid = styled(Grid)`
     margin-top: 120px;
 `;
 
-function Home({ props }) {
+const Home = ({ props }) => {
   const {
     data,
     loading,
@@ -68,6 +68,6 @@ function Home({ props }) {
         )}
     </>
   );
-}
+};
 
 export default hot(module)(Home);

@@ -43,7 +43,7 @@ const StyledFactsSoft = styled(FactsSoft)`
     fill: #A7A7A7;
 `;
 
-function Header({ props, data }) {
+const Header = ({ props, data }) => {
   const { article: { title }, cart: { items } } = data;
 
   const ElevationScroll = (props) => {
@@ -94,6 +94,6 @@ function Header({ props, data }) {
       </AppBar>
     </ElevationScroll>
   );
-}
+};
 
 export default Header;

@@ -48,20 +48,20 @@ const StyledAdd = styled(Add)`
     fill: white;
 `;
 
-function BasicInfo({ data }) {
+const BasicInfo = ({ data }) => {
   const {
     article:
-            {
-              title,
-              supplier_link,
-              supplier_name,
-              stars, price,
-              currency,
-              transport_costs,
-              vat_percent,
-              minimum_order_quantity,
-              unit,
-            },
+      {
+        title,
+        supplier_link,
+        supplier_name,
+        stars, price,
+        currency,
+        transport_costs,
+        vat_percent,
+        minimum_order_quantity,
+        unit,
+      },
   } = data;
 
   return (
@@ -137,6 +137,6 @@ function BasicInfo({ data }) {
       </AddToCartHolder>
     </Section>
   );
-}
+};
 
 export default BasicInfo;

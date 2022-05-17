@@ -36,12 +36,26 @@ const StyledListItem = styled(Typography)`
     padding:5px 10px;
 `;
 
-function PricingAndShipping({ data }) {
+const PricingAndShipping = ({ data }) => {
   const {
     article: {
       minimum_order_quantity, delivery_time, price_breaks, currency, unit, transport_costs,
     },
   } = data;
+
+  const priceBrakesListRender = () => {
+    return Object.entries(price_breaks).map(([key, value], index) =>
+      <StyledListItem key={`feature_${index}`}>
+        <Typography
+          variant="subtitle2"
+          component="span"
+        >
+          {`ex ${key}${unit}: ${value} ${currency}/${unit}`}
+        </Typography>
+      </StyledListItem>
+    )
+  };
+
   return (
     <Section>
       <StyledTypography variant="h6" color="error">
@@ -82,19 +96,10 @@ function PricingAndShipping({ data }) {
         Price breaks
       </StyledTypographyThree>
       <List>
-        {Object.entries(price_breaks).map(([key, value], index) => (
-          <StyledListItem key={`feature_${index}`}>
-            <Typography
-              variant="subtitle2"
-              component="span"
-            >
-              {`ex ${key}${unit}: ${value} ${currency}/${unit}`}
-            </Typography>
-          </StyledListItem>
-        ))}
+        {priceBrakesListRender()}
       </List>
     </Section>
   );
-}
+};
 
 export default PricingAndShipping;

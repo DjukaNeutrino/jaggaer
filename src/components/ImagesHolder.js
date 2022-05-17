@@ -16,7 +16,7 @@ const StyledZoomIn = styled(ZoomIn)`
     fill:#A7A7A7;
 `;
 
-function ImagesHolder() {
+const ImagesHolder = () => {
   return (
     <Grid container spacing={2}>
       <Grid item lg={2} md={2} sm={12} xs={12}>
@@ -66,6 +66,6 @@ function ImagesHolder() {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default ImagesHolder;

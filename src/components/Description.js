@@ -6,7 +6,7 @@ const StyledTypography = styled(Typography)`
     text-transform: uppercase;
 `;
 
-function Description({ data }) {
+const Description = ({ data }) => {
   const { article: { description_long } } = data;
   return (
     <>
@@ -19,6 +19,6 @@ function Description({ data }) {
       <Typography>{description_long}</Typography>
     </>
   );
-}
+};
 
 export default Description;

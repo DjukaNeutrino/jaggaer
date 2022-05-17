@@ -49,8 +49,51 @@ const StyledListItem = styled(ListItem)`
     padding: 0;
 `;
 
-function Details({ data }) {
+const Details = ({ data }) => {
   const { article: { features, attachments, keywords } } = data;
+
+  const featuresListRender = () => {
+    return Object.entries(features).map(([key, value], index) =>
+      <li key={`feature_${index}`}>
+        <StyledTypographyThree variant="body2" component="span">
+          {`${key}: `}
+        </StyledTypographyThree>
+        <Typography variant="subtitle2" component="span">
+          {value}
+        </Typography>
+      </li>
+    );
+  };
+
+  const attachmentsListRender = () => {
+    return attachments.map((attachment, index) =>
+      <StyledListItem
+        key={`attachment_${index}`}
+      >
+        <Attachment />
+        <StyledLink
+          href={attachment.file_link}
+          variant="inherit"
+          underline="none"
+        >
+          <Typography variant="subtitle2">
+            {attachment.file_label}
+          </Typography>
+        </StyledLink>
+      </StyledListItem>
+    )
+  };
+
+  const keywordsListRender = () => {
+    return keywords.map((keyword, index) =>
+      <StyledChip
+        key={`keyword_${index}`}
+        size="small"
+        label={keyword}
+      />
+    )
+  };
+
   return (
     <Section>
       <StyledTypography variant="h6" color="error">
@@ -60,50 +103,20 @@ function Details({ data }) {
         Features
       </StyledTypographyTwo>
       <Ul>
-        {Object.entries(features).map(([key, value], index) => (
-          <li key={`feature_${index}`}>
-            <StyledTypographyThree variant="body2" component="span">
-              {`${key}: `}
-            </StyledTypographyThree>
-            <Typography variant="subtitle2" component="span">
-              {value}
-            </Typography>
-          </li>
-        ))}
+        {featuresListRender()}
       </Ul>
       <StyledTypographyThree variant="body2">
         Attachments
       </StyledTypographyThree>
       <List>
-        {attachments.map((attachment, index) => (
-          <StyledListItem
-            key={`attachment_${index}`}
-          >
-            <Attachment />
-            <StyledLink
-              href={attachment.file_link}
-              variant="inherit"
-              underline="none"
-            >
-              <Typography variant="subtitle2">
-                {attachment.file_label}
-              </Typography>
-            </StyledLink>
-          </StyledListItem>
-        ))}
+        {attachmentsListRender()}
       </List>
       <StyledTypographyFour variant="body2">
         Keywords
       </StyledTypographyFour>
-      {keywords.map((keyword, index) => (
-        <StyledChip
-          key={`keyword_${index}`}
-          size="small"
-          label={keyword}
-        />
-      ))}
+      {keywordsListRender()}
     </Section>
   );
-}
+};
 
 export default Details;
