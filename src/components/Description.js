@@ -14,7 +14,7 @@ const Description = ({ data }) => {
         variant="h6"
         color="error"
       >
-        Description
+        {`Description`}
       </StyledTypography>
       <Typography>{description_long}</Typography>
     </>

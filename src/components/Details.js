@@ -97,22 +97,22 @@ const Details = ({ data }) => {
   return (
     <Section>
       <StyledTypography variant="h6" color="error">
-        Details
+        {`Details`}
       </StyledTypography>
       <StyledTypographyTwo variant="body2">
-        Features
+        {`Features`}
       </StyledTypographyTwo>
       <Ul>
         {featuresListRender()}
       </Ul>
       <StyledTypographyThree variant="body2">
-        Attachments
+        {`Attachments`}
       </StyledTypographyThree>
       <List>
         {attachmentsListRender()}
       </List>
       <StyledTypographyFour variant="body2">
-        Keywords
+        {`Keywords`}
       </StyledTypographyFour>
       {keywordsListRender()}
     </Section>

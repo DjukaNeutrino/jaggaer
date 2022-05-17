@@ -24,11 +24,17 @@ const CartHolder = styled.div`
     float:right;
     padding:24px 12px;
     border-left:1px solid #E8E8E8;
+    @media (max-width: 768px) {
+      border-left:none
+    }
 `;
 
 const StyledTypography = styled(Typography)`
     display: inline-block;
     margin-top: 24px;
+    @media (max-width: 768px) {
+      text-align:center;
+    }
 `;
 
 const StyledCart = styled(Cart)`

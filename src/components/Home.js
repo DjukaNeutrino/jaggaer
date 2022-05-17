@@ -16,10 +16,16 @@ const Section = styled.section`
     background:#EFEFEF;
     margin-top:60px;
     padding:40px;
+    @media (max-width: 768px) {
+      padding:10px;
+    }
 `;
 
 const StyledGrid = styled(Grid)`
     margin-top: 120px;
+    @media (max-width: 768px) {
+      margin-top:180px;
+    }
 `;
 
 const Home = ({ props }) => {

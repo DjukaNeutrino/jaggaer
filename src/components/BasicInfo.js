@@ -68,8 +68,7 @@ const BasicInfo = ({ data }) => {
     <Section>
       <Typography><b>{title}</b></Typography>
       <Typography variant="subtitle2">
-        by
-        {' '}
+        {`by `}
         <StyledLink
           href={supplier_link}
           variant="inherit"
@@ -89,29 +88,19 @@ const BasicInfo = ({ data }) => {
           variant="body"
         >
           <b>{price}</b>
-          {' '}
-          {currency}
+          {` ${currency} `}
         </Typography>
         <StyledTypography
           variant="caption"
         >
-          +
-          {' '}
-          {transport_costs}
-          {' '}
-          {currency}
-          {' '}
-          shipping
+          {`+  ${transport_costs} ${currency} shipping`}
         </StyledTypography>
         <Discount />
       </div>
       <StyledTypographyTwo
         variant="caption"
       >
-        all prices include
-        {' '}
-        {vat_percent}
-        % taxes
+        {`all prices include ${vat_percent} % taxes`}
       </StyledTypographyTwo>
       <AddToCartHolder>
         <StyledTextField
@@ -120,8 +109,7 @@ const BasicInfo = ({ data }) => {
           defaultValue={minimum_order_quantity}
           size="small"
         />
-        {' '}
-        {unit}
+        {` ${unit} `}
         <Button
           variant="contained"
           color="error"
@@ -132,7 +120,7 @@ const BasicInfo = ({ data }) => {
           }}
           startIcon={<StyledAdd />}
         >
-          Add to cart
+          {`Add to cart`}
         </Button>
       </AddToCartHolder>
     </Section>

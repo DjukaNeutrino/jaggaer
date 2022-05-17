@@ -59,27 +59,23 @@ const PricingAndShipping = ({ data }) => {
   return (
     <Section>
       <StyledTypography variant="h6" color="error">
-        Pricing and shipping
+        {`Pricing and shipping`}
       </StyledTypography>
       <Ul>
         <li>
           <StyledTypographyTwo variant="body2" component="span">
-            {'Minimum order:  '}
+            {`Minimum order:  `}
           </StyledTypographyTwo>
           <Typography variant="subtitle2" component="span">
-            {minimum_order_quantity}
-            {' '}
-            {unit}
+            {`${minimum_order_quantity} ${unit}`}
           </Typography>
         </li>
         <li>
           <StyledTypographyTwo variant="body2" component="span">
-            {'Delivery:  '}
+            {`Delivery:  `}
           </StyledTypographyTwo>
           <Typography variant="subtitle2" component="span">
-            {transport_costs}
-            {' '}
-            {currency}
+            {`${transport_costs} ${currency}`}
           </Typography>
         </li>
         <li>
@@ -93,7 +89,7 @@ const PricingAndShipping = ({ data }) => {
       </Ul>
 
       <StyledTypographyThree variant="body2">
-        Price breaks
+        {`Price breaks`}
       </StyledTypographyThree>
       <List>
         {priceBrakesListRender()}
