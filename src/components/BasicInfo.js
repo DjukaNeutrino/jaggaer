@@ -48,6 +48,12 @@ const StyledAdd = styled(Add)`
     fill: white;
 `;
 
+const StyledButton = styled(Button)`
+    border-radius:0;
+    margin-left:30px;
+    text-transform:uppercase;
+`;
+
 const BasicInfo = ({ data }) => {
   const {
     article:
@@ -110,18 +116,13 @@ const BasicInfo = ({ data }) => {
           size="small"
         />
         {` ${unit} `}
-        <Button
+        <StyledButton
           variant="contained"
           color="error"
-          sx={{
-            borderRadius: '0',
-            marginLeft: '30px',
-            textTransform: 'uppercase',
-          }}
           startIcon={<StyledAdd />}
         >
           {`Add to cart`}
-        </Button>
+        </StyledButton>
       </AddToCartHolder>
     </Section>
   );

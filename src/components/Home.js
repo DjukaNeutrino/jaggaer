@@ -15,7 +15,7 @@ import ImagesHolder from './ImagesHolder';
 const Section = styled.section`
     background:#EFEFEF;
     margin-top:60px;
-    padding:40px;
+    padding:40px 0;
     @media (max-width: 768px) {
       padding:10px;
     }

@@ -16,15 +16,25 @@ const StyledZoomIn = styled(ZoomIn)`
     fill:#A7A7A7;
 `;
 
+const StyledCard = styled(Card)`
+    width:100%;
+    margin-bottom:30px;
+`;
+
+const StyledCardTwo = styled(Card)`
+    width:100%;
+`;
+
+const StyledCardThree = styled(Card)`
+    width:100%;
+    position:relative;
+`;
+
 const ImagesHolder = () => {
   return (
     <Grid container spacing={2}>
       <Grid item lg={2} md={2} sm={12} xs={12}>
-        <Card sx={{
-          width: '100%',
-          marginBottom: '30px',
-        }}
-        >
+        <StyledCard>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -33,8 +43,8 @@ const ImagesHolder = () => {
               alt="fissiontesla_blue"
             />
           </CardActionArea>
-        </Card>
-        <Card sx={{ width: '100%' }}>
+        </StyledCard>
+        <StyledCardTwo>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -43,14 +53,10 @@ const ImagesHolder = () => {
               alt="buzz_"
             />
           </CardActionArea>
-        </Card>
+        </StyledCardTwo>
       </Grid>
       <Grid item lg={10} md={10} sm={12} xs={12}>
-        <Card sx={{
-          width: '100%',
-          position: 'relative',
-        }}
-        >
+        <StyledCardThree>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -62,7 +68,7 @@ const ImagesHolder = () => {
           <ZoomInHolder>
             <StyledZoomIn />
           </ZoomInHolder>
-        </Card>
+        </StyledCardThree>
       </Grid>
     </Grid>
   );
