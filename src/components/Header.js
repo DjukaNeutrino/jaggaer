@@ -8,6 +8,32 @@ import styled from 'styled-components';
 import Favorite from '../icons/favorite.svg';
 import FactsSoft from '../icons/facts-soft.svg';
 import Cart from '../icons/cart.svg';
+import addToCartContext from '../addToCartContext';
+import TextField from "@mui/material/TextField/index";
+import Button from "@mui/material/Button/index";
+import Add from '../icons/add.svg';
+
+const AddToCartHolder = styled.div`
+    float:right;
+    margin-top:16px;
+    color:#000000;
+`;
+
+const StyledTextField = styled(TextField)`
+    width: 50px;
+    .MuiInputBase-root{
+        border-radius:0;
+    }
+`;
+
+const StyledButton = styled(Button)`
+    border-radius:0;
+    text-transform:uppercase;
+`;
+
+const StyledAdd = styled(Add)`
+    fill: white;
+`;
 
 const StyledBadge = styled(Badge)`
     right: -22px;
@@ -50,7 +76,7 @@ const StyledFactsSoft = styled(FactsSoft)`
 `;
 
 const Header = ({ props, data }) => {
-  const { article: { title }, cart: { items } } = data;
+  const { article: { title, minimum_order_quantity, unit }, cart: { items } } = data;
 
   const ElevationScroll = (props) => {
     const { children } = props;
@@ -96,6 +122,30 @@ const Header = ({ props, data }) => {
           <FactsAndFavoritesHolder>
             <StyledFavorite/>
           </FactsAndFavoritesHolder>
+          <addToCartContext.Consumer>
+            {({isVisible}) => {
+              return <AddToCartHolder>
+                {!isVisible &&
+                <>
+                  <StyledTextField
+                    id="PCE"
+                    type="number"
+                    defaultValue={minimum_order_quantity}
+                    size="small"
+                  />
+                  {` ${unit} `}
+                  <StyledButton
+                    variant="contained"
+                    color="error"
+                    startIcon={<StyledAdd/>}
+                  >
+                    {`Add to cart`}
+                  </StyledButton>
+                </>
+                }
+              </AddToCartHolder>
+            }}
+          </addToCartContext.Consumer>
         </Toolbar>
       </AppBar>
     </ElevationScroll>

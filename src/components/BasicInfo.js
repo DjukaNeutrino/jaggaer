@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Rating from '@mui/material/Rating';
@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import Discount from '../icons/discount.svg';
 import Add from '../icons/add.svg';
+import addToCartContext from '../addToCartContext';
+import useOnScreen from '../hooks/useOnScreen'
 
 const StyledTextField = styled(TextField)`
     width: 50px;
@@ -54,7 +56,7 @@ const StyledButton = styled(Button)`
     text-transform:uppercase;
 `;
 
-const BasicInfo = ({ data }) => {
+const BasicInfo = ({ data, onIsVisible, onIsNotVisible }) => {
   const {
     article:
       {
@@ -69,6 +71,13 @@ const BasicInfo = ({ data }) => {
         unit,
       },
   } = data;
+
+  const ref = useRef();
+  const isOnScreen = useOnScreen(ref);
+
+  useEffect(() => {
+    isOnScreen ? onIsVisible() : onIsNotVisible()
+  }, [isOnScreen]);
 
   return (
     <Section>
@@ -108,22 +117,30 @@ const BasicInfo = ({ data }) => {
       >
         {`all prices include ${vat_percent} % taxes`}
       </StyledTypographyTwo>
-      <AddToCartHolder>
-        <StyledTextField
-          id="PCE"
-          type="number"
-          defaultValue={minimum_order_quantity}
-          size="small"
-        />
-        {` ${unit} `}
-        <StyledButton
-          variant="contained"
-          color="error"
-          startIcon={<StyledAdd />}
-        >
-          {`Add to cart`}
-        </StyledButton>
-      </AddToCartHolder>
+        <addToCartContext.Consumer>
+          {({isVisible}) => {
+            return <AddToCartHolder ref={ref}>
+              {isVisible &&
+                <>
+                <StyledTextField
+                  id="PCE"
+                  type="number"
+                  defaultValue={minimum_order_quantity}
+                  size="small"
+                />
+                {` ${unit} `}
+                <StyledButton
+                  variant="contained"
+                  color="error"
+                  startIcon={<StyledAdd/>}
+                >
+                  {`Add to cart`}
+                </StyledButton>
+                </>
+              }
+            </AddToCartHolder>
+          }}
+        </addToCartContext.Consumer>
     </Section>
   );
 };

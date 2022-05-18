@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { hot } from 'react-hot-loader/index';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -11,6 +11,7 @@ import Description from './Description';
 import Details from './Details';
 import PricingAndShipping from './PricingAndShipping';
 import ImagesHolder from './ImagesHolder';
+import addToCartContext from '../addToCartContext';
 
 const Section = styled.section`
     background:#EFEFEF;
@@ -35,42 +36,54 @@ const Home = ({ props }) => {
     error,
   } = useFetchData();
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onIsVisible = () => {
+    setIsVisible(true)
+  };
+
+  const onIsNotVisible = () => {
+    setIsVisible(false)
+  };
+
   return (
     <>
       {loading && <div> Loading... </div>}
       {error && <div> Error... </div>}
       {data
         && (
-        <CssBaseline>
-          <Header props={props} data={data} />
-          <Container maxWidth={false}>
-            <StyledGrid container spacing={2} >
-              <Grid item lg={5} md={5} sm={12} xs={12}>
-                <ImagesHolder data={data} />
-              </Grid>
-              <Grid item lg={7} md={7} sm={12} xs={12}>
-                <BasicInfo data={data} />
-              </Grid>
-            </StyledGrid>
-          </Container>
-          <Section>
+        <addToCartContext.Provider value={{isVisible}}>
+          <CssBaseline>
+            <Header props={props} data={data} />
             <Container maxWidth={false}>
-              <Grid container spacing={2}>
-                <Grid item lg={10} md={10} sm={12} xs={12}>
-                  <Description data={data} />
+              <StyledGrid container spacing={2} >
+                <Grid item lg={5} md={5} sm={12} xs={12}>
+                  <ImagesHolder data={data} />
                 </Grid>
-              </Grid>
-              <Grid container spacing={2}>
-                <Grid item lg={5} md={5} sm={5} xs={12}>
-                  <Details data={data} />
+                <Grid item lg={7} md={7} sm={12} xs={12}>
+                  <BasicInfo data={data} onIsVisible={onIsVisible} onIsNotVisible={onIsNotVisible} />
                 </Grid>
-                <Grid item lg={5} md={5} sm={5} xs={12}>
-                  <PricingAndShipping data={data} />
-                </Grid>
-              </Grid>
+              </StyledGrid>
             </Container>
-          </Section>
-        </CssBaseline>
+            <Section>
+              <Container maxWidth={false}>
+                <Grid container spacing={2}>
+                  <Grid item lg={10} md={10} sm={12} xs={12}>
+                    <Description data={data} />
+                  </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                  <Grid item lg={5} md={5} sm={5} xs={12}>
+                    <Details data={data} />
+                  </Grid>
+                  <Grid item lg={5} md={5} sm={5} xs={12}>
+                    <PricingAndShipping data={data} />
+                  </Grid>
+                </Grid>
+              </Container>
+            </Section>
+          </CssBaseline>
+        </addToCartContext.Provider>
         )}
     </>
   );
